@@ -14,7 +14,7 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const entry = MpvueEntry.getEntry('./src/app.json')
+const entry = MpvueEntry.getEntry('./src/app.js')
 
 module.exports = {
   entry,

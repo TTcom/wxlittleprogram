@@ -19,7 +19,15 @@ export default {
       'count'
     ])
   },
-
+  mounted () {
+    wx.startPullDownRefresh()
+  },
+  async onPullDownRefresh () {
+    console.log("stratpull")
+   setTimeout(()=>{
+       wx.stopPullDownRefresh()
+   },2000)
+  },
   methods: {
     ...mapMutations([
       'increment',

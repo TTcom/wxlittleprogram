@@ -1,16 +1,21 @@
 <template>
   <div class="container" @click="clickHandle('test click', $event)">
-
     <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+      <img
+        class="userinfo-avatar"
+        v-if="userInfo.avatarUrl"
+        :src="userInfo.avatarUrl"
+        background-size="cover"
+      />
       <div class="userinfo-nickname">
         <card :text="userInfo.nickName"></card>
       </div>
     </div>
-    
 
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
+    <div>
+      <van-button type="default">默认按钮</van-button>
+      <van-button type="primary" @click="golist">list</van-button>
+    </div>
 
     <van-tag>标签</van-tag>
     <van-tag type="danger">标签</van-tag>
@@ -32,16 +37,16 @@
 </template>
 
 <script>
-import card from '@/components/card'
+import card from "@/components/card";
 
 export default {
-  mpType: 'page',
+  mpType: "page",
 
-  data () {
+  data() {
     return {
-      motto: 'Hello World',
+      motto: "Hello World",
       userInfo: {}
-    }
+    };
   },
 
   components: {
@@ -49,32 +54,36 @@ export default {
   },
 
   methods: {
-    bindViewTap () {
-      const url = '/packageA/logs'
-      this.$router.push(url)
+    golist() {
+      const url = "/pages/list";
+      this.$router.push(url);
     },
-    getUserInfo () {
+    bindViewTap() {
+      const url = "/packageA/logs";
+      this.$router.push(url);
+    },
+    getUserInfo() {
       // 调用登录接口
       wx.login({
         success: () => {
           wx.getUserInfo({
-            success: (res) => {
-              this.userInfo = res.userInfo
+            success: res => {
+              this.userInfo = res.userInfo;
             }
-          })
+          });
         }
-      })
+      });
     },
-    clickHandle (msg, ev) {
-      console.log('clickHandle:', msg, ev)
+    clickHandle(msg, ev) {
+      console.log("clickHandle:", msg, ev);
     }
   },
 
-  created () {
+  created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    this.getUserInfo();
   }
-}
+};
 </script>
 
 <style scoped>
@@ -94,7 +103,6 @@ export default {
 .userinfo-nickname {
   color: #aaa;
 }
-
 
 .form-control {
   display: block;
