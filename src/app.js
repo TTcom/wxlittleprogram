@@ -1,6 +1,5 @@
 module.exports = {
-  pages: [
-    {
+  pages: [{
       path: "pages/index",
       config: {
         "navigationBarTitleText": "my-project"
@@ -8,7 +7,7 @@ module.exports = {
     },
     {
       path: "pages/list",
-      config:{
+      config: {
         enablePullDownRefresh: true
       }
     },
@@ -27,8 +26,28 @@ module.exports = {
     navigationBarTitleText: 'chat',
     navigationBarTextStyle: 'black'
   },
+  tabBar: {
+    color: '#999',
+    selectedColor: '#d22222',
+    backgroundColor: '#fff',
+    borderStyle: 'black',
+    list: [
+      {
+        pagePath: 'pages/index',
+        text: '首页',
+        iconPath: 'static/assets/news.png',
+        selectedIconPath: 'static/assets/news-active.png'
+      },
+      {
+        pagePath: 'pages/counter',
+        text: 'vuex',
+        iconPath: 'static/assets/quanzi.png',
+        selectedIconPath: 'static/assets/quanzi-active.png'
+      }
+    ]
+  },
   usingComponents: {
-    "van-tag": "/static/vant-weapp/lib/tag/index",
-    "van-button": "/static/vant-weapp/lib/button/index"
+    "van-tag": "/static/vant/tag/index",
+    "van-button": "/static/vant/button/index",
   }
 }

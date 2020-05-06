@@ -13,8 +13,8 @@
     </div>
 
     <div>
-      <van-button type="default">默认按钮</van-button>
-      <van-button type="primary" @click="golist">list</van-button>
+      <van-button type="default" @click="govuex">默认按钮</van-button>
+      <van-button type="primary" @click="golist">list123</van-button>
     </div>
 
     <van-tag>标签</van-tag>
@@ -32,7 +32,6 @@
       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
-    <a href="/pages/counter" class="counter">去往Vuex示例页面</a>
   </div>
 </template>
 
@@ -54,6 +53,9 @@ export default {
   },
 
   methods: {
+    govuex(){
+           
+    },
     golist() {
       const url = "/pages/list";
       this.$router.push(url);
@@ -86,20 +88,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
+    .userinfo-avatar {
+      width: 128rpx;
+      height: 128rpx;
+      margin: 20rpx;
+      border-radius: 50%;
+  }
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
 .userinfo-nickname {
   color: #aaa;
 }
